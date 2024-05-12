@@ -22,23 +22,23 @@ var host = new HostBuilder()
     })
     .Build();
 
-using (var scope = host.Services.CreateScope())
-{
-    try
-    {
-        var context = scope.ServiceProvider.GetRequiredService<DataContext>();
-        var migration = context.Database.GetPendingMigrations();
-        if (migration != null && migration.Any())
-        {
-            context.Database.Migrate();
-        }
-    }
-    catch (Exception ex)
-    {
-        Debug.WriteLine($"ERROR : VerificationProvider.Program.cs :: {ex.Message}");
-    }
+//using (var scope = host.Services.CreateScope())
+//{
+//    try
+//    {
+//        var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+//        var migration = context.Database.GetPendingMigrations();
+//        if (migration != null && migration.Any())
+//        {
+//            context.Database.Migrate();
+//        }
+//    }
+//    catch (Exception ex)
+//    {
+//        Debug.WriteLine($"ERROR : VerificationProvider.Program.cs :: {ex.Message}");
+//    }
 
-}
+//}
 
 host.Run();
 
